@@ -9,11 +9,10 @@ generator client {
 
 model User {
   id        Int       @id @default(autoincrement())
-  username  String
+  username  String    @default("Name")
   password  String
   email     String
   token     String    @default("0")
 
   @@unique([email])
-  @@unique([username, password, token], name: "userJwtCheck")
 }
